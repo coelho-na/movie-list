@@ -1,15 +1,16 @@
-import { createGlobalStyles } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyles = createGlobalStyles`
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+const GlobalStyles = createGlobalStyle`
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
-  body{
-    font-family: 'Lato', sans-serif;
-  }
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
 `;
 
 export default GlobalStyles;
