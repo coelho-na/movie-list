@@ -7,6 +7,7 @@ export const ListItem = styled.li`
   margin: 10px 0;
   list-style: none;
   display: flex;
+  overflow: hidden;
 `;
 
 export const MoviePoster = styled.div`
