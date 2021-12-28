@@ -9,7 +9,7 @@ export const SearchInput = styled.input`
   border: none;
   outline: none;
   font-family: "Abel", sans-serif;
-  margin-top: 16px;
+
 
   &::placeholder {
     color: #116193 !important;

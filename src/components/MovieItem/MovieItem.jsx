@@ -5,6 +5,11 @@ import {
   MovieImage,
   MovieContent,
   MovieHeader,
+  MovieTitle,
+  VoteAverageContainer,
+  VoteAverageValue,
+  DateRelease,
+  MovieOverview
 } from "./MovieItem.styled";
 import { Link } from "react-router-dom";
 import { IMG_URL } from "../../services/api";
@@ -17,7 +22,7 @@ const MovieItem = ({
   release_date,
   vote_average,
 }) => {
-  console.log(title);
+  console.log(vote_average);
   return (
     <ListItem>
       <MoviePoster>
@@ -26,7 +31,14 @@ const MovieItem = ({
         </Link>
       </MoviePoster>
       <MovieContent>
-        <MovieHeader>{title}</MovieHeader>
+        <MovieHeader><MovieTitle>{title}</MovieTitle></MovieHeader>
+        <VoteAverageContainer>
+          <VoteAverageValue>
+            {vote_average} %
+          </VoteAverageValue>
+        </VoteAverageContainer>
+        <DateRelease>{release_date}</DateRelease>
+        <MovieOverview>{overview}</MovieOverview>
       </MovieContent>
     </ListItem>
   );
