@@ -93,7 +93,9 @@ export const MovieDetailsInfoText = styled.span`
 
 export const MovieDetailsGenres = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px 0;
 
   @media screen and (min-width: 992px) {
     position: absolute;
@@ -106,9 +108,9 @@ export const MovieDetailsGenresItem = styled.li`
   background-color: #fff;
   color: #116193;
   border: 1px solid #116193;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   border-radius: 12px;
-
+  padding: 5px;
   @media screen and (min-width: 992px) {
     padding: 5px 10px;
     border-radius: 15px;
