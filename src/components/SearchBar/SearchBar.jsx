@@ -11,7 +11,9 @@ const SearchBar = () => {
   const getMovies = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(searchURL + searchValue);
+    const response = await fetch(
+      `${searchURL}${searchValue}&language=pt-BR&region=BR`
+    );
     const data = await response.json();
     setMovies(data.results);
   };
