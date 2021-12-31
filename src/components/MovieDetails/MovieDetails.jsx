@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API_KEY, BASE_URL } from "../../services/api";
+import { API_KEY, BASE_URL, IMG_URL } from "../../services/api";
 import { Container } from "./../../styles/Global";
 import {
   MovieDetailsHeader,
@@ -15,6 +15,12 @@ import {
   MovieDetailsInfoText,
   MovieDetailsGenres,
   MovieDetailsGenresItem,
+  MovieDetailsAverageBox,
+  MovieDetailsAverage,
+  MovieDetailsPoster,
+  MovieDetailsImgPoster,
+  MovieTrailerBox,
+  MovieTrailer,
 } from "./MovieDetails.styled";
 import numeral from "numeral";
 
@@ -30,11 +36,15 @@ const MovieDetails = (props) => {
     budget,
     revenue,
     genres,
+    vote_average,
+    id,
+    poster_path: imagePoster,
   } = movieDetail;
-  console.log(genres);
+  const [trailer, setTrailer] = useState([]);
 
   useEffect(() => {
     getDetails();
+    getTrailer();
   }, [props]);
 
   const getDetails = async (e) => {
@@ -43,7 +53,12 @@ const MovieDetails = (props) => {
     );
     const data = await response.json();
     setMovieDetail(data);
-    console.log(data);
+  };
+
+  const getTrailer = async () => {
+    const response = await fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`);
+    const { results } = await response.json();
+    results.map((item) => setTrailer(item));
   };
 
   return (
@@ -108,8 +123,26 @@ const MovieDetails = (props) => {
                 ))
               : ""}
           </MovieDetailsGenres>
+
+          <MovieDetailsAverageBox>
+            <MovieDetailsAverage>
+              {numeral(vote_average / 10).format("0%")}
+            </MovieDetailsAverage>
+          </MovieDetailsAverageBox>
         </MovieDetailsInfos>
+        <MovieDetailsPoster>
+          <MovieDetailsImgPoster src={`${IMG_URL}${imagePoster}`} />
+        </MovieDetailsPoster>
       </MovieDetailsContent>
+      <MovieTrailerBox>
+        <MovieTrailer
+          title={trailer.name}
+          src={`https://www.youtube.com/embed/${trailer.key}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </MovieTrailerBox>
     </Container>
   );
 };

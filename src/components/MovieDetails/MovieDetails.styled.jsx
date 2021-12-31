@@ -28,21 +28,23 @@ export const MovieDetailsDate = styled.span`
 `;
 
 export const MovieDetailsContent = styled.section`
-  position: relative;
   display: flex;
   flex-direction: column-reverse;
+  background-color: #f6f6f6;
   @media screen and (min-width: 992px) {
     flex-direction: row;
   }
 `;
 
 export const MovieDetailsInfos = styled.main`
+  position: relative;
   background-color: #f6f6f6;
   padding: 40px;
 
   @media screen and (min-width: 992px) {
     padding: 24px;
     width: 65%;
+    background-color: #f6f6f6 !important;
   }
 `;
 
@@ -74,6 +76,7 @@ export const MovieDetailsInfoDiv = styled.div`
 
 export const MovieDetailsInfoBox = styled.div`
   text-align: center;
+  background-color: #f6f6f6;
 `;
 
 export const MovieDetailsInfoTitle = styled.h3`
@@ -95,7 +98,7 @@ export const MovieDetailsGenres = styled.ul`
   @media screen and (min-width: 992px) {
     position: absolute;
     width: 65%;
-    bottom: -15px;
+    bottom: 70px;
   }
 `;
 
@@ -113,6 +116,42 @@ export const MovieDetailsGenresItem = styled.li`
   }
 `;
 
+export const MovieDetailsAverageBox = styled.div`
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #116193;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 992px) {
+    position: absolute;
+    bottom: 30px;
+
+    right: 5px;
+    left: unset;
+  }
+`;
+
+export const MovieDetailsAverage = styled.span`
+  width: 45px;
+  height: 45px;
+  color: #00e8e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #00e8e4;
+  border-radius: 50%;
+  margin: 5px;
+
+  @media screen and (min-width: 992px) {
+    width: 75px;
+    height: 75px;
+  }
+`;
+
 export const MovieDetailsPoster = styled.aside`
   @media screen and (min-width: 992px) {
     width: 35%;
@@ -121,4 +160,17 @@ export const MovieDetailsPoster = styled.aside`
 
 export const MovieDetailsImgPoster = styled.img`
   width: 100%;
+`;
+
+export const MovieTrailerBox = styled.div`
+  margin-top: 2rem;
+`;
+
+export const MovieTrailer = styled.iframe`
+  width: 100%;
+  min-height: 25vh;
+
+  @media screen and (min-width: 992px) {
+    min-height: 75vh;
+  }
 `;
